@@ -1,0 +1,245 @@
+/* dermacare Kosmetikstudio Heilbronn — design system
+   Palette: deep marine teal (brand-dominant) + warm brass accent + cool paper.
+   Type: Fraunces (display serif) / Inter (body & UI). */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+  --ink: #0c211f;
+  --marine: #0f3d3a;
+  --marine-2: #175750;
+  --marine-3: #1e6b60;
+  --paper: #f3f5f3;
+  --paper-2: #e7ece9;
+  --gold: #b3873c;
+  --gold-light: #d9b877;
+  --ink-soft: #3d4c49;
+  --ink-faint: #6b7a76;
+  --border: rgba(12,33,31,0.12);
+  --border-on-dark: rgba(255,255,255,0.16);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display{
+  font-family: 'Fraunces', ui-serif, Georgia, serif;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p{ max-width: 62ch; margin: 0 0 1em; text-wrap: pretty; }
+a{ color: inherit; }
+
+img{ max-width: 100%; display: block; }
+
+.wrap{ max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 720px){ .wrap{ padding: 0 22px; } }
+
+/* ---------- Nav ---------- */
+nav{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 76px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+  background: rgba(12,33,31,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+@media (max-width: 720px){ nav{ padding: 0 20px; height: 64px; } }
+
+.nav-logo{
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-logo span{ color: var(--gold-light); font-style: italic; }
+
+.nav-links{
+  display: flex; gap: 30px; list-style: none; margin: 0; padding: 0;
+}
+.nav-links a{
+  font-size: 13.5px; color: rgba(255,255,255,0.72); text-decoration: none;
+  transition: color 160ms var(--ease-out);
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active{ color: #fff; }
+@media (max-width: 980px){ .nav-links{ display: none; } }
+
+.nav-cta{
+  font-size: 13px; color: var(--ink);
+  background: var(--gold-light);
+  padding: 10px 20px; border-radius: 3px;
+  text-decoration: none; font-weight: 500;
+  transition: background 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+.nav-cta:hover{ background: #fff; }
+.nav-cta:active{ transform: scale(0.97); }
+@media (max-width: 980px){ .nav-cta{ display: none; } }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  padding: 15px 30px; border-radius: 2px;
+  transition: transform 160ms var(--ease-out), background 160ms var(--ease-out), color 160ms var(--ease-out);
+  border: 1px solid transparent;
+}
+.btn:active{ transform: scale(0.97); }
+.btn-primary{ background: var(--marine); color: #fff; }
+.btn-primary:hover{ background: var(--marine-2); }
+.btn-ghost{ border-color: var(--border); color: var(--ink); }
+.btn-ghost:hover{ border-color: var(--ink); }
+.btn-ghost-dark{ border-color: var(--border-on-dark); color: #fff; }
+.btn-ghost-dark:hover{ border-color: #fff; }
+
+/* ---------- Page header band (inner pages) ---------- */
+.page-head{
+  padding: 190px 0 70px;
+  background: var(--marine);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.page-head::after{
+  content:'';
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 85% 20%, rgba(217,184,119,0.14), transparent 55%);
+  pointer-events: none;
+}
+.page-head h1{ color: #fff; font-size: clamp(34px, 5vw, 54px); max-width: 16ch; }
+.page-head .kicker{
+  font-size: 13.5px; color: var(--gold-light); margin-bottom: 14px; font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+.page-head p{ color: rgba(255,255,255,0.72); font-size: 17px; margin-top: 18px; max-width: 56ch; }
+
+/* ---------- Sections ---------- */
+.sec{ padding: 90px 0; }
+.sec-tight{ padding: 60px 0; }
+@media (max-width: 720px){ .sec{ padding: 60px 0; } }
+
+hr.rule{ border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ---------- Treatment block (image + text, alternating) ---------- */
+.treat{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  padding: 64px 0;
+}
+.treat + .treat{ border-top: 1px solid var(--border); }
+.treat.flip .treat-media{ order: 2; }
+.treat-media img{
+  width: 100%; aspect-ratio: 4/3.1; object-fit: cover; border-radius: 2px;
+}
+.treat-eyebrow{ font-family: 'Fraunces', serif; font-style: italic; color: var(--gold); font-size: 15px; margin-bottom: 10px; }
+.treat h2{ font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
+.treat p{ font-size: 15.5px; }
+.treat-prices{ margin-top: 22px; }
+.price-row{
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 11px 0; border-top: 1px solid var(--border);
+  font-size: 14.5px;
+}
+.price-row:last-of-type{ border-bottom: 1px solid var(--border); }
+.price-row .label{ color: var(--ink); }
+.price-row .amount{ font-family: 'Fraunces', serif; color: var(--marine); font-size: 16px; white-space: nowrap; padding-left: 20px; }
+.treat-cta{ margin-top: 26px; }
+
+@media (max-width: 860px){
+  .treat{ grid-template-columns: 1fr; gap: 28px; }
+  .treat.flip .treat-media{ order: 0; }
+}
+
+/* ---------- Feature image (page-level, one per treatment page) ---------- */
+.feature-img{ width: 100%; aspect-ratio: 21/9; object-fit: cover; }
+@media (max-width: 720px){ .feature-img{ aspect-ratio: 4/3.4; } }
+
+/* ---------- Menu entry (text-first treatment listing, spa-menu style) ---------- */
+.menu-entry{ padding: 46px 0; }
+.menu-entry + .menu-entry{ border-top: 1px solid var(--border); }
+.menu-entry-head{ display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap; }
+.menu-entry h3{ font-size: clamp(20px, 2.4vw, 25px); font-weight: 500; }
+.menu-entry .duration{ font-size: 13px; color: var(--ink-faint); white-space: nowrap; }
+.menu-entry p{ font-size: 15px; margin-top: 14px; max-width: 68ch; }
+.menu-entry .treat-prices{ max-width: 480px; }
+.menu-entry .treat-cta{ margin-top: 20px; }
+
+/* ---------- Service index (homepage list) ---------- */
+.service-index{ list-style: none; margin: 0; padding: 0; }
+.service-index li{ border-top: 1px solid var(--border); }
+.service-index li:last-child{ border-bottom: 1px solid var(--border); }
+.service-index a{
+  display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+  text-decoration: none; color: var(--ink);
+  padding: 30px 0;
+  transition: padding-left 220ms var(--ease-out), color 220ms var(--ease-out);
+}
+.service-index a:hover{ padding-left: 14px; color: var(--marine); }
+.service-index .si-name{ font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 400; }
+.service-index .si-right{ display: flex; align-items: baseline; gap: 18px; flex-shrink: 0; }
+.service-index .si-desc{ font-size: 13.5px; color: var(--ink-faint); max-width: 34ch; text-align: right; flex-shrink: 0; }
+@media (max-width: 720px){ .service-index .si-desc{ display: none; } }
+.service-index .si-arrow{
+  font-family: 'Fraunces', serif; font-style: italic; color: var(--gold); font-size: 20px;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+  width: 1em;
+}
+.service-index a:hover .si-arrow{ opacity: 1; transform: translateX(0); }
+
+/* ---------- Brand strip ---------- */
+.brand-strip{
+  display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: baseline; justify-content: center;
+}
+.brand-strip span{
+  font-family: 'Fraunces', serif; font-size: 19px; letter-spacing: 0.02em; color: var(--ink-faint);
+}
+
+/* ---------- Footer ---------- */
+footer{ background: var(--ink); color: rgba(255,255,255,0.62); padding: 64px 0 28px; font-size: 13.5px; }
+.footer-grid{ display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-bottom: 44px; }
+.footer-col-title{ font-family: 'Fraunces', serif; color: #fff; font-size: 16px; margin-bottom: 14px; }
+footer p{ margin: 0 0 6px; max-width: none; }
+footer a{ text-decoration: none; color: inherit; }
+footer a:hover{ color: #fff; }
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.12); padding-top: 22px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  font-size: 12.5px;
+}
+.footer-bottom .links{ display: flex; gap: 20px; }
+@media (max-width: 780px){ .footer-grid{ grid-template-columns: 1fr; gap: 30px; } }
+
+/* ---------- Map / address block ---------- */
+.map-embed{ width: 100%; aspect-ratio: 16/8; border: 0; filter: grayscale(0.3) contrast(1.05); border-radius: 2px; }
+@media (max-width: 720px){ .map-embed{ aspect-ratio: 4/3; } }
+
+/* ---------- Reveal on scroll (single orchestrated pattern) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity: 0; transform: translateY(14px); transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Legal pages ---------- */
+.legal-body h2{ font-size: 19px; margin: 34px 0 10px; }
+.legal-body h2:first-child{ margin-top: 0; }
+.legal-body p, .legal-body li{ font-size: 14.5px; color: var(--ink-soft); }
+.legal-body ul{ padding-left: 20px; }
